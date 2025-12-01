@@ -1,0 +1,191 @@
+// Copyright 2024 Google LLC
+
+package {
+    default_applicable_licenses: ["sdv_license"],
+    default_visibility: [
+        "//sdv/interfaces:__subpackages__",
+        "//system/tools/aidl/build",
+        "//system/software_defined_vehicle:__subpackages__",
+    ],
+}
+
+// TODO: b/362862853 - Determine if this can be in system/.
+aidl_interface {
+    name: "google.sdv.gateway-aidl",
+    vendor_available: true,
+    product_available: true,
+    system_ext_specific: true,
+    srcs: ["google/sdv/gateway/**/*.aidl"],
+    imports: [
+        "android.hardware.common.fmq-V1",
+        "android.hardware.common-V2",
+        "google.sdv.identity-aidl-V2",
+        "google.sdv.authz-aidl-V2",
+        "google.sdv.data_tunnel-aidl-V2",
+        "google.sdv.service_discovery.common-aidl-V2",
+        "google.sdv.service_discovery.discovery-aidl-V2",
+    ],
+    stability: "vintf",
+    owner: "google",
+    frozen: false,
+    min_sdk_version: "35",
+    backend: {
+        java: {
+            enabled: false,
+        },
+        rust: {
+            enabled: true,
+        },
+        ndk: {
+            enabled: true,
+        },
+        cpp: {
+            enabled: false,
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [
+                "android.hardware.common.fmq-V1",
+                "android.hardware.common-V2",
+                "google.sdv.identity-aidl-V1",
+                "google.sdv.authz-aidl-V1",
+                "google.sdv.data_tunnel-aidl-V1",
+                "google.sdv.service_discovery.common-aidl-V1",
+                "google.sdv.service_discovery.discovery-aidl-V1",
+            ],
+        },
+        {
+            version: "2",
+            imports: [
+                "android.hardware.common.fmq-V1",
+                "android.hardware.common-V2",
+                "google.sdv.identity-aidl-V1",
+                "google.sdv.authz-aidl-V1",
+                "google.sdv.data_tunnel-aidl-V1",
+                "google.sdv.service_discovery.common-aidl-V1",
+                "google.sdv.service_discovery.discovery-aidl-V1",
+            ],
+        },
+
+    ],
+
+}
+
+aidl_interface {
+    name: "google.sdv.privileged.gatewaynetworking-aidl",
+    vendor_available: true,
+    product_available: true,
+    system_ext_specific: true,
+    srcs: ["google/sdv/privileged/gatewaynetworking/*.aidl"],
+    stability: "vintf",
+    owner: "google",
+    frozen: true,
+    min_sdk_version: "35",
+    backend: {
+        java: {
+            enabled: false,
+        },
+        rust: {
+            enabled: false,
+        },
+        ndk: {
+            // Enabled because this interface is served by the SDV Gateway service and consumed by
+            // the (Java) SDV Gateway Networking service (through JNI).
+            enabled: true,
+        },
+        cpp: {
+            enabled: false,
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+
+}
+
+aidl_interface {
+    name: "google.sdv.privileged.identity-aidl",
+    vendor_available: true,
+    product_available: true,
+    system_ext_specific: true,
+    srcs: ["google/sdv/privileged/identity/*.aidl"],
+    imports: [
+        "google.sdv.identity-aidl-V2",
+    ],
+    stability: "vintf",
+    owner: "google",
+    frozen: false,
+    min_sdk_version: "35",
+    backend: {
+        java: {
+            enabled: false,
+        },
+        rust: {
+            // Enabled because the implementation is provided by SD agent.
+            enabled: true,
+        },
+        ndk: {
+            // Enabled because this interface is intended for SDV Gateway service consumption.
+            enabled: true,
+        },
+        cpp: {
+            enabled: false,
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: ["google.sdv.identity-aidl-V1"],
+        },
+    ],
+
+}
+
+aidl_interface {
+    name: "google.sdv.privileged.service_discovery-aidl",
+    vendor_available: true,
+    product_available: true,
+    system_ext_specific: true,
+    srcs: ["google/sdv/privileged/service_discovery/*.aidl"],
+    imports: [
+        "google.sdv.service_discovery.common-aidl-V2",
+        "google.sdv.service_discovery.discovery-aidl-V2",
+        "google.sdv.identity-aidl-V2",
+    ],
+    stability: "vintf",
+    owner: "google",
+    frozen: false,
+    min_sdk_version: "35",
+    backend: {
+        java: {
+            enabled: false,
+        },
+        rust: {
+            // Enabled because the implementation is provided by SD agent.
+            enabled: true,
+        },
+        ndk: {
+            // Enabled because this interface is intended for SDV Gateway service consumption.
+            enabled: true,
+        },
+        cpp: {
+            enabled: false,
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [
+                "google.sdv.service_discovery.common-aidl-V1",
+                "google.sdv.service_discovery.discovery-aidl-V1",
+                "google.sdv.identity-aidl-V1",
+            ],
+        },
+    ],
+
+}
