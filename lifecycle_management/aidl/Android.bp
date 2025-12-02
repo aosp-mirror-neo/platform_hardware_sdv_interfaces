@@ -1,0 +1,53 @@
+// Copyright 2025 Google LLC
+
+package {
+    default_applicable_licenses: ["sdv_license"],
+}
+
+// Service bundle lifecycle API used for communication
+// between service bundle instances and lifecycle manager.
+aidl_interface {
+    name: "google.sdv.lifecycle",
+    srcs: [
+        "google/sdv/lifecycle/internal/IService.aidl",
+        "google/sdv/lifecycle/internal/IServiceManager.aidl",
+    ],
+    imports: ["google.sdv.identity-aidl-V1"],
+    system_ext_specific: true,
+    product_available: true,
+    stability: "vintf",
+    owner: "google",
+    host_supported: true,
+    backend: {
+        java: {
+            enabled: false, // java isn't supported on SDV
+        },
+        cpp: {
+            enabled: false,
+        },
+        ndk: {
+            enabled: true,
+            apex_available: [
+                "//apex_available:platform",
+                "//apex_available:anyapex",
+            ],
+        },
+        rust: {
+            enabled: true,
+            gen_mockall: true,
+            additional_rustlibs: ["libmockall"],
+            apex_available: [
+                "//apex_available:platform",
+                "//apex_available:anyapex",
+            ],
+        },
+    },
+    frozen: true,
+    versions_with_info: [
+        {
+            version: "1",
+            imports: ["google.sdv.identity-aidl-V1"],
+        },
+    ],
+
+}
