@@ -18,6 +18,11 @@ package {
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
+filegroup {
+    name: "sdv_vpm_agent_vintf_fragments",
+    srcs: ["google.sdv.vpm-service.xml"],
+}
+
 aidl_interface {
     name: "google.sdv.vpm",
     srcs: ["google/sdv/vpm/*.aidl"],
@@ -26,7 +31,7 @@ aidl_interface {
     visibility: [
         // Dependencies to all aidl_interface
         "//system/tools/aidl/build",
-        "//system/software_defined_vehicle/automotive_services/vpm:__subpackages__",
+        "//system/software_defined_vehicle/vpm:__subpackages__",
         "//system/software_defined_vehicle/core_services/orchestration:__subpackages__",
         "//system/software_defined_vehicle/core_services/health_monitor:__subpackages__",
         "//system/software_defined_vehicle/core_services/service_discovery:__subpackages__",
@@ -34,7 +39,7 @@ aidl_interface {
         "//system/software_defined_vehicle/core_services/sdv_gateway:__subpackages__",
         "//system/software_defined_vehicle/core_services/data_tunnel:__subpackages__",
         "//system/software_defined_vehicle/telemetry:__subpackages__",
-        "//system/software_defined_vehicle/automotive_services/samples/vpm/power_state_client",
+        "//system/software_defined_vehicle/samples/vpm/power_state_client",
     ],
     backend: {
         rust: {
