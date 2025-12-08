@@ -1,0 +1,73 @@
+//
+// Copyright (C) 2025 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+aidl_interface {
+    name: "google.sdv.vpm",
+    srcs: ["google/sdv/vpm/*.aidl"],
+    stability: "vintf",
+    owner: "google",
+    visibility: [
+        // Dependencies to all aidl_interface
+        "//system/tools/aidl/build",
+        "//system/software_defined_vehicle/automotive_services/vpm:__subpackages__",
+        "//system/software_defined_vehicle/core_services/orchestration:__subpackages__",
+        "//system/software_defined_vehicle/core_services/health_monitor:__subpackages__",
+        "//system/software_defined_vehicle/core_services/service_discovery:__subpackages__",
+        "//system/software_defined_vehicle/core_services/update_manager:__subpackages__",
+        "//system/software_defined_vehicle/core_services/sdv_gateway:__subpackages__",
+        "//system/software_defined_vehicle/core_services/data_tunnel:__subpackages__",
+        "//system/software_defined_vehicle/telemetry:__subpackages__",
+        "//system/software_defined_vehicle/automotive_services/samples/vpm/power_state_client",
+    ],
+    backend: {
+        rust: {
+            enabled: true,
+            gen_mockall: true,
+            additional_rustlibs: [
+                "libmockall",
+            ],
+        },
+        ndk: {
+            enabled: true,
+            apex_available: [
+                "//apex_available:anyapex",
+                "//apex_available:platform",
+            ],
+        },
+        cpp: {
+            enabled: false,
+        },
+        java: {
+            enabled: false,
+        },
+    },
+    host_supported: true,
+    vendor_available: true,
+    system_ext_specific: true,
+    min_sdk_version: "34",
+    frozen: true,
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+
+}
