@@ -44,8 +44,9 @@ enum ConfigurablePublisherStatusCodes {
     REGISTER_PUBLISHER_FAILED_BINDER_ERROR = 401,
 
     /**
-     * Unable to parse publisher file descriptor proto when trying to register
-     * IConfigurablePublisher with the IConfigurablePublisherRegistry service
+     * Unable to parse publisher file descriptor proto/set when trying to
+     * register IConfigurablePublisher with the IConfigurablePublisherRegistry
+     * service
      */
     REGISTER_PUBLISHER_FAILED_FILE_DESCRIPTOR_PROTO_PARSE_ERROR = 402,
 
@@ -69,6 +70,15 @@ enum ConfigurablePublisherStatusCodes {
      * Get Latest Message Failed for the Configurable Publisher
      */
     GET_LATEST_MESSAGE_FAILED = 406,
+
+    /**
+     * Failed to register IConfigurablePublisher with the
+     * IConfigurablePublisherRegistry service due to both `fileDescriptorProto`
+     * and `fileDescriptorSet` of `PublisherInfo` are set. Only one of them can
+     * be set. Prefer `fileDescriptorSet` over the deprecated
+     * `fileDescriptorProto`.
+     */
+    REGISTER_PUBLISHER_FAILED_CONFLICTING_FILE_DESCRIPTOR_SOURCES = 407,
 
     /**
      * Arbitrary Error used as a placeholder for errors not yet defined

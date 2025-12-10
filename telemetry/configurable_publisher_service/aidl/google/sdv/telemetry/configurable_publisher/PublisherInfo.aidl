@@ -26,17 +26,44 @@ parcelable PublisherInfo {
     // across SDV. Must be non-null
     @utf8InCpp String serviceName;
 
-    // Protobuf descriptor that contains root published message and all its
-    // nested sub-messages. Must be non-null. This schema is used by the telemetry
-    // service to deserialize the data sent by the publisher.
+    // @deprecated Use `fileDescriptorSet` instead and set this to `null`.
     //
-    // fileDescriptorProto must be less than 10Kb to prevent binder buffer to be full.
-    byte[] fileDescriptorProto;
+    // Serialized `google.protobuf.FileDescriptorProto` that contains the
+    // message descriptor (named by the `messageTypeName` field) of the message
+    // this publisher publishes and all of its necessary dependencies.
+    //
+    // The message descriptor is used by the telemetry service to deserialize
+    // the data sent by the publisher.
+    //
+    // Only one of `fileDescriptorProto` and `fileDescriptorSet` may be set
+    // (= non-null). An empty byte array is treated as being set, since an empty
+    // byte array is a valid serialization result of a protobuf message.
+    //
+    // `fileDescriptorProto` must be less than 10Kb to prevent binder buffer to
+    // be full.
+    @nullable byte[] fileDescriptorProto;
 
-    // Name of the type of the root published message. Must be non-null
-    // The message must be declared in fileDescriptorProto.
+    // Full name of the published message. Must be non-null. The message
+    // descriptor of this message must be declared in `fileDescriptorProto` or
+    // `fileDescriptorSet`.
     @utf8InCpp String messageTypeName;
 
-    // Indicates whether the publisher provides latest message without subscribing.
+    // Indicates whether the publisher provides latest message without
+    // subscribing.
     boolean supportsGet;
+
+    // Serialized `google.protobuf.FileDescriptorSet` that contains the message
+    // descriptor (named by the `messageTypeName` field) of the message this
+    // publisher publishes and all of its necessary dependencies.
+    //
+    // The message descriptor is used by the telemetry service to deserialize
+    // the data sent by the publisher.
+    //
+    // Only one of `fileDescriptorProto` and `fileDescriptorSet` may be set
+    // (= non-null). An empty byte array is treated as being set, since an empty
+    // byte array is a valid serialization result of a protobuf message.
+    //
+    // `fileDescriptorSet` must be less than 10Kb to prevent binder buffer to be
+    // full.
+    @nullable byte[] fileDescriptorSet;
 }
