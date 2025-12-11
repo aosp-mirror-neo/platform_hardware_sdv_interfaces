@@ -35,7 +35,8 @@ package google.sdv.telemetry.configurable_publisher;
 @VintfStability
 parcelable PublisherInfo {
   @utf8InCpp String serviceName;
-  byte[] fileDescriptorProto;
+  @nullable byte[] fileDescriptorProto;
   @utf8InCpp String messageTypeName;
   boolean supportsGet;
+  @nullable byte[] fileDescriptorSet;
 }
