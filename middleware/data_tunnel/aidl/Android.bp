@@ -77,3 +77,16 @@ aidl_interface {
         },
     ],
 }
+
+filegroup {
+    name: "dt_agent_vintf_fragments",
+    srcs: [
+        "google.sdv.data_tunnel-service.xml",
+    ],
+}
+
+vintf_fragment {
+    name: "google.sdv.data_tunnel-service.xml",
+    src: "google.sdv.data_tunnel-service.xml",
+    system_ext_specific: true,
+}

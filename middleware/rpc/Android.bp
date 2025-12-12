@@ -75,3 +75,8 @@ aidl_interface {
     ],
 
 }
+
+filegroup {
+    name: "rpc_agent_vintf_fragments",
+    srcs: ["google.sdv.rpc-service.xml"],
+}
