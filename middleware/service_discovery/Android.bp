@@ -316,3 +316,8 @@ aidl_interface {
         },
     ],
 }
+
+filegroup {
+    name: "sdv_sd_agent_vintf_fragments",
+    srcs: ["google.sdv.sd-service.xml"],
+}
