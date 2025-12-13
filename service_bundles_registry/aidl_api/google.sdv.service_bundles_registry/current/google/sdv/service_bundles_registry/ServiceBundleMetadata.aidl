@@ -43,6 +43,9 @@ parcelable ServiceBundleMetadata {
   @utf8InCpp String nativeLibraryPath;
   @nullable @utf8InCpp String schedulingConfigPath;
   @nullable @utf8InCpp String orchestrationConfigPath;
+  /**
+   * @deprecated This field is deprecated from AIDL v3, use authorizationPolicyPath instead.
+   */
   @nullable @utf8InCpp String accessControlListPolicyPath;
   @nullable @utf8InCpp String configurationCalibrationConfigPath;
   @nullable @utf8InCpp String userConfigPath;
@@ -52,4 +55,5 @@ parcelable ServiceBundleMetadata {
   @nullable @utf8InCpp String externalProtocolMappingPath;
   google.sdv.service_bundles_registry.KeyValuePair[] customMetadata;
   @nullable @utf8InCpp String logTag;
+  @nullable @utf8InCpp String authorizationPolicyPath;
 }

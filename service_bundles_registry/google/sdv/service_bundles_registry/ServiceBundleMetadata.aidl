@@ -70,6 +70,8 @@ parcelable ServiceBundleMetadata {
      * ACLs policy file defines access control for Unit Types and Service Units
      * owned by the Service Bundle. Service Bundle might own neither Unit Types
      * nor Service Units, thus the field is optional.
+     *
+     * @deprecated This field is deprecated from AIDL v3, use authorizationPolicyPath instead.
      */
     @utf8InCpp @nullable String accessControlListPolicyPath;
 
@@ -112,4 +114,12 @@ parcelable ServiceBundleMetadata {
      * Service bundle log tag.
      */
     @utf8InCpp @nullable String logTag;
+
+    /**
+     * Absolute path to the service bundle authorization (AuthZ) policy file.
+     *
+     * AuthZ policy file sets the policy for the Service Bundle with regards to its usage of
+     * the SDV Comms Stack APIs.
+     */
+    @utf8InCpp @nullable String authorizationPolicyPath;
 }
