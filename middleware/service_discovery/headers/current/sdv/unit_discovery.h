@@ -400,6 +400,39 @@ sdv_status_t ASDV_ServiceDiscoveryManager_registerServiceUnitChangeListenerByNam
                 completion_cb_vtable);
 
 /**
+ * Registers service unit change listener by UnitType and Channel.
+ *
+ * Parameters:
+ *    [IN] ctx: Pointer to the Context object for this ServiceBundle.
+ *    [IN] unit_type: The UnitType used for discovering Service Units.
+ *    [IN] channel: The channel name to filter service units.
+ *    [IN] listener_cb_vtable: The CallbackVTable which will be used to trigger the callback when a
+ *         matching service unit changes.
+ *    [IN] completion_cb_vtable: The CallbackVTable which will be used to trigger the callback when the
+ *         registration operation completes.
+ *
+ * This function returns immediately and invokes the provided callbacks when appropriate.
+ *
+ * SAFETY: The caller guarantees all the following:
+ *   1. `ctx` is a valid Context object pointer,
+ *   2. `unit_type` is a pointer to a valid ASDV_UnitType declaration,
+ *   3. `channel` is a pointer to a valid null-terminated string,
+ *   4. listener_cb_vtable transfers ownership of the provided ASDV_ServiceUnitChangeEvent pointer.
+ *      The caller must use ASDV_ServiceUnitChangeEvent_extractDefinition to extract definition and
+ *      destroy it.
+ *   5. completion_cb_vtable transfers ownership of the provided
+ *      ASDV_ServiceUnitChangeListenerHandle pointer. This must be cleared appropriately by calling
+ *      ASDV_ServiceDiscoveryManager_unregisterServiceUnitChangeListener after use.
+ */
+sdv_status_t ASDV_ServiceDiscoveryManager_registerServiceUnitChangeListenerByChannel(
+        const ASDV_Context* ctx, const ASDV_UnitType* unit_type,
+        const char* channel,
+        ASDV_CallbackVTable_ServiceDiscoveryManager_NotifyListenerOfServiceUnitChange
+                listener_cb_vtable,
+        ASDV_CallbackVTable_ServiceDiscoveryManager_RegisterServiceUnitChangeListener
+                completion_cb_vtable);
+
+/**
  * Unregisters service unit change listener.
  *
  * Parameters:
@@ -446,6 +479,71 @@ sdv_status_t ASDV_ServiceUnitChangeEvent_getEventType(
  */
 ASDV_ServiceUnitDefinition* ASDV_ServiceUnitChangeEvent_extractDefinition(
         ASDV_ServiceUnitChangeEvent* ptr);
+
+/**
+ * Lists all registered channel names.
+ *
+ * Parameters:
+ *    [IN] ctx: Pointer to the Context object for this ServiceBundle.
+ *    [IN] cb_vtable: The CallbackVTable which will be used to trigger the callback when the
+ *         backing operation has results.
+ *
+ * This function returns immediately and invokes the provided callback (multiple times) as soon
+ * as results from the IPC call to the local (same VM) ServiceDiscoveryAgent are available.
+ *
+ * SAFETY: The caller guarantees all the following:
+ *   1. `ctx` is a valid Context object pointer,
+ *   2. cb_vtable transfers ownership of any provided char pointers. These
+ *      must be cleared appropriately by calling free() after use.
+ */
+sdv_status_t ASDV_ServiceDiscoveryManager_listChannels(
+        const ASDV_Context* ctx,
+        ASDV_CallbackVTable_ServiceDiscoveryManager_ListChannels cb_vtable);
+
+/**
+ * Lists all registered channel names for a given UnitType.
+ *
+ * Parameters:
+ *    [IN] ctx: Pointer to the Context object for this ServiceBundle.
+ *    [IN] unit_type: The UnitType used for discovering Service Units.
+ *    [IN] cb_vtable: The CallbackVTable which will be used to trigger the callback when the
+ *         backing operation has results.
+ *
+ * This function returns immediately and invokes the provided callback (multiple times) as soon
+ * as results from the IPC call to the local (same VM) ServiceDiscoveryAgent are available.
+ *
+ * SAFETY: The caller guarantees all the following:
+ *   1. `ctx` is a valid Context object pointer,
+ *   2. `unit_type` is a pointer to a valid ASDV_UnitType declaration,
+ *   3. cb_vtable transfers ownership of any provided char pointers. These
+ *      must be cleared appropriately by calling free() after use.
+ */
+\
+sdv_status_t ASDV_ServiceDiscoveryManager_listChannelsByType(
+        const ASDV_Context* ctx, const ASDV_UnitType* unit_type,
+        ASDV_CallbackVTable_ServiceDiscoveryManager_ListChannels cb_vtable);
+
+/**
+ * Lists discoverable Service Units that match the provided channel name.
+ *
+ * Parameters:
+ *    [IN] ctx: Pointer to the Context object for this ServiceBundle.
+ *    [IN] channel_name: The channel name used for discovering Service Units.
+ *    [IN] cb_vtable: The CallbackVTable which will be used to trigger the callback when the
+ *         backing operation has results.
+ *
+ * This function returns immediately and invokes the provided callback (multiple times) as soon
+ * as results from the IPC call to the local (same VM) ServiceDiscoveryAgent are available.
+ *
+ * SAFETY: The caller guarantees all the following:
+ *   1. `ctx` is a valid Context object pointer,
+ *   2. `channel_name` is a pointer to a valid null-terminated string,
+ *   3. cb_vtable transfers ownership of any provided ASDV_ServiceUnitDefinition pointers. These
+ *      must be cleared appropriately by calling ASDV_ServiceUnitDefinition_destroy after use.
+ */
+sdv_status_t ASDV_ServiceDiscoveryManager_fetchPublishersByChannelName(
+        const ASDV_Context* ctx, const char* channel_name,
+        ASDV_CallbackVTable_ServiceDiscoveryManager_fetchPublishersByChannelName cb_vtable);
 
 #ifdef __cplusplus
 }  // extern "C"
