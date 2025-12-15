@@ -34,7 +34,6 @@
 package google.sdv.privileged.gatewaynetworking;
 @VintfStability
 interface INetworkStateListener {
-    oneway void onSdvNetworkHandleChanged(in long networkHandle);
-    oneway void onCarPowerStateChanged(
-            in google.sdv.privileged.gatewaynetworking.CarPowerState powerState);
+  oneway void onSdvNetworkHandleChanged(in long networkHandle);
+  oneway void onCarPowerStateChanged(in google.sdv.privileged.gatewaynetworking.CarPowerState powerState);
 }

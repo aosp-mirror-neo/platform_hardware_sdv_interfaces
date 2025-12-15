@@ -90,7 +90,7 @@ aidl_interface {
     srcs: ["google/sdv/privileged/gatewaynetworking/*.aidl"],
     stability: "vintf",
     owner: "google",
-    frozen: false,
+    frozen: true,
     min_sdk_version: "35",
     backend: {
         java: {
@@ -113,6 +113,11 @@ aidl_interface {
             version: "1",
             imports: [],
         },
+        {
+            version: "2",
+            imports: [],
+        },
+
     ],
 
 }

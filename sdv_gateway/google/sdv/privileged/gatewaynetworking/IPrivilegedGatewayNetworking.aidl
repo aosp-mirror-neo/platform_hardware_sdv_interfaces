@@ -77,4 +77,19 @@ interface IPrivilegedGatewayNetworking {
      * message in case of failure.
      */
     void registerNetworkStateListener(INetworkStateListener listener);
+
+    /**
+     * Sets a binder that is used as a liveness probe of the network service. The SdvGateway get
+     * notified when the binder dies, and treats the event as a network disconnect. Calling this
+     * methods a second time causes the old binder to be unbound and the new one to be used as a
+     * liveness probe.
+     * Calling this method with a null binder clears the old liveness probe (causes the old binder
+     * to be unbound or does nothing).
+     *
+     * @param linkToDeath binder to use as liveness probe.
+     * @return Status::ok on success
+     *         EX_SERVICE_SPECIFIC containing a @{link SdvGatewayStatusCode} error code and an error
+     * message in case of failure.
+     */
+    void setNetworkServiceWatcher(@nullable IBinder linkToDeath);
 }

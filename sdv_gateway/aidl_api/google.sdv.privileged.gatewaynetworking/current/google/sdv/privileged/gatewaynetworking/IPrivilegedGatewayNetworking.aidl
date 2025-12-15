@@ -34,9 +34,9 @@
 package google.sdv.privileged.gatewaynetworking;
 @VintfStability
 interface IPrivilegedGatewayNetworking {
-    @utf8InCpp String getRpcNetworkInterfaceName();
-    void setRpcNetworkHandle(long handle);
-    void onCarPowerStateChanged(google.sdv.privileged.gatewaynetworking.CarPowerState state);
-    void registerNetworkStateListener(
-            google.sdv.privileged.gatewaynetworking.INetworkStateListener listener);
+  @utf8InCpp String getRpcNetworkInterfaceName();
+  void setRpcNetworkHandle(long handle);
+  void onCarPowerStateChanged(google.sdv.privileged.gatewaynetworking.CarPowerState state);
+  void registerNetworkStateListener(google.sdv.privileged.gatewaynetworking.INetworkStateListener listener);
+  void setNetworkServiceWatcher(@nullable IBinder linkToDeath);
 }
