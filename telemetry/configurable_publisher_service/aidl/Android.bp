@@ -38,12 +38,17 @@ aidl_interface {
             enabled: true,
         },
     },
-    frozen: false,
+    frozen: true,
     versions_with_info: [
         {
             version: "1",
             imports: [],
         },
+        {
+            version: "2",
+            imports: [],
+        },
+
     ],
 
 }
