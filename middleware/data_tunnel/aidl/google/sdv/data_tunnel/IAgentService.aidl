@@ -28,6 +28,7 @@ import google.sdv.data_tunnel.ClientDescriptor;
 import google.sdv.data_tunnel.PublicationDescriptor;
 import google.sdv.identity.UnitIdentifier;
 import google.sdv.service_discovery.common.RegistrationToken;
+import google.sdv.service_discovery.common.UnitType;
 
 /**
  *  Data Tunnel Agent private interface
@@ -87,4 +88,11 @@ interface IAgentService {
      * deleted publication.
      */
     void GetLastPublicationMessage(in UnitIdentifier unit_identifier, out byte[] message);
+
+    /**
+     * Fetches the last message from the specified channel with the given unit type and channel
+     * name. The method will return an error if the unit_type or channel_name is invalid or refers
+     * to a previously deleted publication.
+     */
+    void GetLastChannelMessage(in UnitType unit_type, in String channel_name, out byte[] message);
 }

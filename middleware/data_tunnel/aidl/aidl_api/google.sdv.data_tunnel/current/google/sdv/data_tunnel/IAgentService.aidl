@@ -51,6 +51,8 @@ interface IAgentService {
     void UnsubscribeFromPublication(in int publication_id);
     void GetLastPublicationMessage(
             in google.sdv.identity.UnitIdentifier unit_identifier, out byte[] message);
+    void GetLastChannelMessage(in google.sdv.service_discovery.common.UnitType unit_type,
+            in String channel_name, out byte[] message);
     const int ERROR_UNKNOWN = 1;
     const int ERROR_ACCESS_DENIED = 2;
 }
