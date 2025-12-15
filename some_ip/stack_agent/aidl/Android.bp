@@ -17,7 +17,7 @@ package {
 }
 
 aidl_interface {
-    name: "google.sdv.someip-aidl",
+    name: "google.sdv.someip",
     vendor_available: true,
     host_supported: true,
     srcs: ["google/sdv/someip/*.aidl"],
@@ -53,4 +53,9 @@ aidl_interface {
 
     ],
 
+}
+
+filegroup {
+    name: "sdv_someip_stack_agent_vintf_fragments",
+    srcs: ["google.sdv.someip-service.xml"],
 }

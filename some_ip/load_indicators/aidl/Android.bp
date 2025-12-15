@@ -53,3 +53,8 @@ aidl_interface {
     ],
 
 }
+
+filegroup {
+    name: "sdv_someip_broker_agent_vintf_fragments",
+    srcs: ["google.sdv.someip_load_indicators.xml"],
+}
