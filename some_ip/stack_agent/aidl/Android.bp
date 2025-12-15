@@ -54,3 +54,8 @@ aidl_interface {
     ],
 
 }
+
+filegroup {
+    name: "sdv_someip_stack_agent_vintf_fragments",
+    srcs: ["google.sdv.someip-service.xml"],
+}
