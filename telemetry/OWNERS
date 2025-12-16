@@ -1,0 +1,4 @@
+# Bug component: 1236360
+# go/android-codereviews#buganizer-component-links-in-owners
+
+include platform/system/software_defined_vehicle/telemetry:/OWNERS
