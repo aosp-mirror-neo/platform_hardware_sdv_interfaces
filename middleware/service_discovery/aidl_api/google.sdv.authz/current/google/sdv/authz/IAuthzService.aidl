@@ -35,4 +35,5 @@ package google.sdv.authz;
 @VintfStability
 interface IAuthzService {
   boolean isAuthorized(in google.sdv.identity.ServiceFqin subject, in google.sdv.identity.ServiceFqin object, in @utf8InCpp String object_service_unit_name);
+  boolean isAuthorizedForChannel(in google.sdv.identity.ServiceFqin subject, in @utf8InCpp String channel_name, in google.sdv.service_discovery.common.UnitType unit_type);
 }

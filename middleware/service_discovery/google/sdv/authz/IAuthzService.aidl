@@ -17,6 +17,7 @@
 package google.sdv.authz;
 
 import google.sdv.identity.ServiceFqin;
+import google.sdv.service_discovery.common.UnitType;
 
 /** SDV Authorization Service APIs. */
 @VintfStability
@@ -28,4 +29,13 @@ interface IAuthzService {
      *         {@code StatusCode::BAD_VALUE} if the FQIN is not valid.
      */
     boolean isAuthorized(in ServiceFqin subject, in ServiceFqin object, in @utf8InCpp String object_service_unit_name);
+
+    /**
+     * Verify that the provided subject is allowed to interact with the specified
+     * channel + UnitType combination.
+     *
+     * @throws exception with the error code set to:
+     *         {@code StatusCode::BAD_VALUE} if the FQIN is not valid.
+     */
+    boolean isAuthorizedForChannel(in ServiceFqin subject, in @utf8InCpp String channel_name, in UnitType unit_type);
 }
