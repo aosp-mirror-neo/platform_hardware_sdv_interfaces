@@ -1,0 +1,24 @@
+{
+  "imports": [
+    // keep-sorted start block=yes
+    {
+        "path": "system/software_defined_vehicle/samples/telemetry"
+    },
+    {
+        "path": "system/software_defined_vehicle/telemetry"
+    }
+    // keep-sorted end
+  ],
+  "sdv_telemetry_tests_presubmit": [
+    // keep-sorted start block=yes
+    // keep-sorted end
+  ],
+  "sdv_telemetry_tests_postsubmit": [
+    // keep-sorted start block=yes
+    // keep-sorted end
+  ],
+  "sdv_telemetry_integration_tests_presubmit": [
+    // keep-sorted start block=yes
+    // keep-sorted end
+  ]
+}
