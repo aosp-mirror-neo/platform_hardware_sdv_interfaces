@@ -20,6 +20,7 @@ package google.sdv.gateway;
  * Parameters for subscribing to a Data Tunnel publication service unit identified by name.
  *
  * Note: not the final API.
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 @VintfStability
 parcelable SubscribeToPublicationByNameParams {

@@ -22,6 +22,8 @@ import google.sdv.gateway.SocketAddress;
  * FindRpcServerResult contains the parameters needed to create a RPC channel to an RPC server. The
  * RPC channel should be created in the process of the application that is searching for the RPC
  * server.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 
 @VintfStability

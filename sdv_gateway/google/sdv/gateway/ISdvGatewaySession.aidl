@@ -41,6 +41,8 @@ import google.sdv.service_discovery.discovery.IServiceRegistrationAgent;
  * The client must keep a reference to the session to keep the session alive. Once a session is
  * deleted (by releasing the reference) all subscriptions are closed and all publications are
  * destroyed.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 @VintfStability
 interface ISdvGatewaySession {

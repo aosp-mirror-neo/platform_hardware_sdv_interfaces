@@ -32,6 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.privileged.gatewaynetworking;
+/**
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
+ */
 @VintfStability
 interface INetworkStateListener {
   oneway void onSdvNetworkHandleChanged(in long networkHandle);

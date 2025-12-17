@@ -32,6 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.privileged.service_discovery;
+/**
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
+ */
 @VintfStability
 interface IPrivilegedServiceRegistrationAgent {
   google.sdv.service_discovery.common.RegistrationToken registerServiceUnitForProcess(@utf8InCpp String serviceUnitName, in google.sdv.service_discovery.common.UnitType unitType, in google.sdv.service_discovery.common.AccessControl acls, in google.sdv.service_discovery.common.metadata.ApplicationMetadata appMetadata, in google.sdv.identity.ProcessIdentifier processIdentifier);

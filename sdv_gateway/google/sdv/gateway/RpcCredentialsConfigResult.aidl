@@ -19,8 +19,9 @@ package google.sdv.gateway;
 /**
  * RpcCredentialsConfigResult contains the result of a call SDV Gateway Session AIDL's
  * rpcCredentialsConfig API.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
-
 @VintfStability
 parcelable RpcCredentialsConfigResult {
     /** Whether insecure or secure channels and RPC servers should be created. */

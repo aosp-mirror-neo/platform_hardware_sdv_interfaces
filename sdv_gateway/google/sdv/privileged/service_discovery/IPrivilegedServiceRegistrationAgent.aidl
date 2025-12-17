@@ -24,6 +24,8 @@ import google.sdv.service_discovery.common.metadata.ApplicationMetadata;
 
 /**
  * NOTE: Only the SDV Gateway service is allowed to use this interface.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 @VintfStability
 interface IPrivilegedServiceRegistrationAgent {

@@ -19,6 +19,8 @@ package google.sdv.gateway;
 /**
  * RequestCertificateChainResult contains the response to SDV Gateway Session AIDL's
  * requestCertificateChain API call.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 
 @VintfStability

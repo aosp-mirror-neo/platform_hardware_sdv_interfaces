@@ -20,6 +20,8 @@ package google.sdv.gateway.service_discovery;
  * ServerUnitMetadata contains the metadata required for registering a new server within SDV
  * Gateway Session AIDL (part of the RegisterRpcServerParams parameter for registerRpcServer
  * method).
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 
 @VintfStability

@@ -21,6 +21,8 @@ package google.sdv.privileged.gatewaynetworking;
  *
  * Note: We have this file since android.frameworks.automotive.power.ICarPowerServer
  * is not available until A16, see b/418004379 for more contexts.
+ *
+ * @deprecated Gateway networking API will be internal in the future.
  */
 
 @Backing(type="int") @VintfStability

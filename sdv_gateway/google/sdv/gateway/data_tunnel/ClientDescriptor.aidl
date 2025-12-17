@@ -23,6 +23,8 @@ import android.hardware.common.NativeHandle;
  * information including client id and read/write pipe handles.
  * The client_id value is used by DataTunnel Agent to distinguish
  * client instances while using communication pipe.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 @VintfStability
 parcelable ClientDescriptor {

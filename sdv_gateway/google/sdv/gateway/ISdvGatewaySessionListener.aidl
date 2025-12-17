@@ -18,6 +18,8 @@ package google.sdv.gateway;
 
 /**
  * Interface for receiving events in the client's process from the SDV Gateway server.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 @VintfStability
 oneway interface ISdvGatewaySessionListener {

@@ -27,6 +27,8 @@ import google.sdv.gateway.service_discovery.PublisherUnitMetadata;
  * "libsdvgatewayclient" library.
  *
  * Note: not the final API.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 
 @VintfStability

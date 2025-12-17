@@ -20,6 +20,8 @@ package google.sdv.gateway;
  * Public key needed to create SDV service identity for IVI components.
  *
  * Note: not the final API.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 
 @VintfStability

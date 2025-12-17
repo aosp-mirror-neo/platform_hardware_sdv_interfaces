@@ -20,6 +20,7 @@ package google.sdv.gateway;
  * SocketAddress is a tuple of (host, port)
  *
  * Note: not the final API.
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 
 @VintfStability

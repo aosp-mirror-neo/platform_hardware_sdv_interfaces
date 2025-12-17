@@ -22,6 +22,8 @@ import google.sdv.privileged.gatewaynetworking.INetworkStateListener;
 /**
  * NOTE: This interface is exposed by the SDV Gateway and only the (Java) SDV Gateway Networking
  * service is allowed to use this interface.
+ *
+ * @deprecated Gateway networking API will be internal in the future.
  */
 @VintfStability
 interface IPrivilegedGatewayNetworking {
