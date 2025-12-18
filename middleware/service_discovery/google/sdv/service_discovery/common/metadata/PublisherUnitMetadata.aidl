@@ -23,4 +23,14 @@ parcelable PublisherUnitMetadata {
     int version; // unsigned 32 bits
     int message_size;
     int message_count;
+    /**
+     * The name of the channel this publisher will send message to.
+     * This is a kebab-case string with length limited by 127 chars,
+     * containing the following chars: [a-z0-9-].
+     * Empty channels are not valid channels.
+     *
+     * Valid: "channel-name", "name"
+     * Invalid: "", "-channel-", "-", "CHANNEL", "channel_name"
+     */
+    @utf8InCpp String channel_name = "";
 }

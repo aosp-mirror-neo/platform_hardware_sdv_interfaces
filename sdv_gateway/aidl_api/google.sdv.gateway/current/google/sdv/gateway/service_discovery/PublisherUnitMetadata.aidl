@@ -37,8 +37,9 @@ package google.sdv.gateway.service_discovery;
  */
 @RustDerive(Clone=true, Hash=true, PartialEq=true) @VintfStability
 parcelable PublisherUnitMetadata {
-  int version;
-  int messageSizeBytes;
-  int messageCount;
-  byte[] valueHolder;
+    int version;
+    int messageSizeBytes;
+    int messageCount;
+    byte[] valueHolder;
+    @utf8InCpp String channelName = "";
 }

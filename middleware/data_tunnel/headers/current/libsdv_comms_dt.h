@@ -247,7 +247,7 @@ DEFINE_CALLBACK(SetNotificationHandler, ASDV_NotificationType);
  *
  * Return:
  *    This function does not return anything. It invokes the provided CallbackVTable with
- *    SDV_STATUS_OK, and a pointer to an ASDV_PublicationHandle on success, or an sdv_status_t code
+ *    SDV_STATUS_OK, and a pointer to an ASDV_SubscriptionHandle on success, or an sdv_status_t code
  *    representing an error.
  */
 void ASDV_SubscribeToPublication(const ASDV_Context* _Nonnull context,
@@ -290,6 +290,49 @@ void ASDV_SubscribeToUnitType(const ASDV_Context* _Nonnull context,
                               const ASDV_UnitType* _Nonnull unit_type,
                               const uint64_t subscription_flags,
                               ASDV_CallbackVTable_SubscribeToPublication callback_vtable);
+
+
+/**
+ * Non blocking.
+ * Thread safe.
+ *
+ * This function accepts a OnceCallbackVTable that will be invoked when the
+ * operation completes.
+ *
+ * Subscribes to all the publications with the specified unit type and channel name using provided
+ * ASDV_UnitType and returns the newly created subscription as a pointer to ASDV_SubscriptionHandle
+ * via callback. All publication properties are store as publisher's metadata and can be requested
+ * from Service Discovery.
+ *
+ * Parameters:
+ *    [IN] context: Pointer to the local SDV Comm Stack Context object
+ *    [IN] unit_type: Unit Type to subscribe
+ *    [IN] channel_name: Channel name to subscribe
+ *    [IN] subscription_flags: see ASDV_SubscriptionFlags_* for details
+ *    [IN] callback_vtable: A CallbackVTable that will be invoked with an error sdv_status_t or a
+ *         pointer to the a created ASDV_SubscriptionHandle
+ *
+ * #Safety
+ * - `context` must be a valid pointer to the ASDV_Context instance.
+ * - `unit_type` must be a valid pointer to an ASDV_UnitType instance.
+ * - `channel_name` must be a valid pointer to a null-terminated string.
+ * - `callback_vtable` must be a valid value to valid vtable as required by OnceCallbackVTable.
+ * - This function takes a reference to the provided `unit_type`.
+ * - This function provides ownership of ASDV_SubscriptionHandle through the callback. The caller
+ *   is responsible for ensuring that the backing memory is appropriately cleared using the function
+ *   ASDV_UnsubscribeFromPublication.
+ *
+ * Return:
+ *    This function does not return anything. It invokes the provided CallbackVTable with
+ *    SDV_STATUS_OK, and a pointer to an ASDV_SubscriptionHandle on success, or an sdv_status_t code
+ *    representing an error.
+ */
+void ASDV_SubscribeToChannel(const ASDV_Context* _Nonnull context,
+                             const ASDV_UnitType* _Nonnull unit_type,
+                             const char* _Nonnull channel_name,
+                             const uint64_t subscription_flags,
+                             ASDV_CallbackVTable_SubscribeToPublication callback_vtable);
+
 /**
  * Non blocking.
  * Thread safe.
@@ -441,6 +484,43 @@ void ASDV_SubscribeToHistory(const ASDV_Context* _Nonnull context,
                              ASDV_CallbackVTable_SubscribeToHistory callback_vtable);
 
 /**
+ * Remote blocking.
+ * Thread safe.
+ *
+ * Creates a "message_count"-size history aggregator for all publications of the
+ * given unit type and channel and subscribes to it. Stores the newly created history handle. All
+ * publication properties are store as publisher's metadata and can be requested
+ * from Service Discovery.
+ *
+ * Parameters:
+ *    [IN] context: Pointer to the local SDV Comm Stack Context object
+ *    [IN] unit_type: Unit Type to subscribe
+ *    [IN] channel_name: Channel name to subscribe
+ *    [IN] history_buffer_size: Depth of the history aggregator in messages
+ *    [IN] callback_vtable: A CallbackVTable that will be invoked with an error sdv_status_t or a
+ *         pointer to the a created ASDV_HistoryHandle
+ *
+ * #Safety
+ * - `context` must be a valid pointer to the ASDV_Context instance.
+ * - `unit_type` must be a valid pointer to an ASDV_UnitType instance.
+ * - `channel_name` must be a valid pointer to a null-terminated string.
+ * - `callback_vtable` must be a valid value to valid vtable as required by OnceCallbackVTable.
+ * - This function takes a reference to the provided `unit_type`.
+ * - This function provides ownership of ASDV_HistoryHandle through the callback. The caller
+ *   is responsible for ensuring that the backing memory is appropriately cleared using the function
+ *   ASDV_UnsubscribeFromHistory.
+ *
+ * Return:
+ *    This function does not return anything. It invokes the provided CallbackVTable with
+ *    SDV_STATUS_OK, and a pointer to an ASDV_HistoryHandle on success, or an sdv_status_t code
+ *    representing an error.
+ */
+void ASDV_SubscribeToHistoryChannel(const ASDV_Context* _Nonnull context,
+                                    const ASDV_UnitType* _Nonnull unit_type,
+                                    const char* _Nonnull channel_name, uint32_t history_buffer_size,
+                                    ASDV_CallbackVTable_SubscribeToHistory callback_vtable);
+
+/**
  * Non blocking.
  * Thread safe.
  *
@@ -533,6 +613,40 @@ void ASDV_GetLastPublicationMessage(const ASDV_Context* _Nonnull context,
                                     const ASDV_UnitIdentifier* _Nonnull unit_identifier,
                                     void* _Nonnull buffer, const uint32_t buffer_size,
                                     ASDV_CallbackVTable_GetLastPublicationMessage callback_vtable);
+
+/**
+ * Local/Remote blocking [*].
+ * Thread safe.
+ *
+ * This function returns the last published message in the specified
+ * channel without subscribing to it, or returns an error if the
+ * channel is empty.
+ *
+ * Parameters:
+ *    [IN] context: Pointer to the local SDV Comm Stack Context object
+ *    [IN] unit_type: Service Unit Type to read data from
+ *    [IN] channel_name: Channel name to read data from
+ *    [IN] buffer: Pointer to the buffer where the data will be copied.
+ *         The buffer must remain valid until the callback is invoked.
+ *    [IN] buffer_size: Message buffer size in bytes. The buffer size must be at least the size
+ *                      of the message. Messages exceeding the limit set by
+ *                      ASDV_MaxInstantReadMessageSize cannot be received.
+ *    [IN] callback_vtable: A CallbackVTable that will be invoked with an error sdv_status_t or
+ *         amount of bytes read
+ *
+ * Return:
+ *    This function does not return anything. It invokes the provided CallbackVTable with
+ *    SDV_STATUS_OK, and amount of bytes read on success, or an sdv_status_t code
+ *    representing an error.
+ *
+ * Note: [*] This call will be blocked locally only if the publisher is local, or if this
+ *           publication has local subscribers. Otherwise, each call will be remote blocking.
+ */
+void ASDV_GetLastChannelMessage(const ASDV_Context* _Nonnull context,
+                                const ASDV_UnitType* _Nonnull unit_type,
+                                const char* _Nonnull channel_name,
+                                void* _Nonnull buffer, const uint32_t buffer_size,
+                                ASDV_CallbackVTable_GetLastPublicationMessage callback_vtable);
 
 #ifdef __cplusplus
 }  // extern "C"

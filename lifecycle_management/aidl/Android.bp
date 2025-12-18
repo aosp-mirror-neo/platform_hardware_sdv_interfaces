@@ -26,7 +26,7 @@ aidl_interface {
         "google/sdv/lifecycle/internal/IService.aidl",
         "google/sdv/lifecycle/internal/IServiceManager.aidl",
     ],
-    imports: ["google.sdv.identity-V1"],
+    imports: ["google.sdv.identity-V2"],
     system_ext_specific: true,
     product_available: true,
     stability: "vintf",
@@ -56,7 +56,7 @@ aidl_interface {
             ],
         },
     },
-    frozen: true,
+    frozen: false,
     versions_with_info: [
         {
             version: "1",
