@@ -32,6 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.gateway.ca;
+/**
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
+ */
 @VintfStability
 interface IAuthoritiesListener {
   oneway void onAuthoritiesChanged(in String authoritiesListPem);

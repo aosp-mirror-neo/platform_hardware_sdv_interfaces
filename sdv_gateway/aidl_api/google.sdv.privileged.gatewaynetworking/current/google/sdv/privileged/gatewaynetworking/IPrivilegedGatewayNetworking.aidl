@@ -32,11 +32,14 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.privileged.gatewaynetworking;
+/**
+ * @deprecated Gateway networking API will be internal in the future.
+ */
 @VintfStability
 interface IPrivilegedGatewayNetworking {
-    @utf8InCpp String getRpcNetworkInterfaceName();
-    void setRpcNetworkHandle(long handle);
-    void onCarPowerStateChanged(google.sdv.privileged.gatewaynetworking.CarPowerState state);
-    void registerNetworkStateListener(
-            google.sdv.privileged.gatewaynetworking.INetworkStateListener listener);
+  @utf8InCpp String getRpcNetworkInterfaceName();
+  void setRpcNetworkHandle(long handle);
+  void onCarPowerStateChanged(google.sdv.privileged.gatewaynetworking.CarPowerState state);
+  void registerNetworkStateListener(google.sdv.privileged.gatewaynetworking.INetworkStateListener listener);
+  void setNetworkServiceWatcher(@nullable IBinder linkToDeath);
 }

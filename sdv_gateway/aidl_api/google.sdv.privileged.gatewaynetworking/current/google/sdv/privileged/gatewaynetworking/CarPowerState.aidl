@@ -32,6 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.privileged.gatewaynetworking;
+/**
+ * @deprecated Gateway networking API will be internal in the future.
+ */
 @Backing(type="int") @VintfStability
 enum CarPowerState {
   INVALID = 0,

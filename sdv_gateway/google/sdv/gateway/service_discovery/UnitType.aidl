@@ -24,6 +24,8 @@ package google.sdv.gateway.service_discovery;
  * 1. sdv.package is a Package Name;
  * 2. ServiceBundle - is a Bundle Name;
  * 3. UnitType - is a Type Name.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 @RustDerive(Clone=true, PartialEq=true, Hash=true, Eq=true)
 @VintfStability

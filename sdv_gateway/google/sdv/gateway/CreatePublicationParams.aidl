@@ -23,6 +23,8 @@ import google.sdv.gateway.service_discovery.UnitType;
  * Parameters for creating a Data Tunnel publication.
  *
  * Note: not the final API.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 @VintfStability
 parcelable CreatePublicationParams {

@@ -25,6 +25,8 @@ import google.sdv.gateway.service_discovery.UnitType;
  *
  * TODO: b/360243025 - Applications should not need to pass the serverPackageName, the
  * serverPackageName should be deduced programmatically.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 
 @VintfStability

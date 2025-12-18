@@ -32,6 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.privileged.service_discovery;
+/**
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
+ */
 @VintfStability
 interface IPrivilegedServiceDiscoveryAgent {
   void fetchServiceUnitsByTypeForProcess(in google.sdv.service_discovery.common.UnitType unitType, in google.sdv.service_discovery.discovery.IServiceUnitFetchListener listener, in google.sdv.identity.ProcessIdentifier processIdentifier);

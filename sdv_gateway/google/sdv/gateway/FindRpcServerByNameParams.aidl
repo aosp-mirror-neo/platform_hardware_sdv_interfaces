@@ -19,6 +19,8 @@ package google.sdv.gateway;
 /**
  * FindRpcServerByNameParams contains the parameters needed to call SDV Gateway Session AIDL's
  * findRpcServerByName API
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 
 @VintfStability

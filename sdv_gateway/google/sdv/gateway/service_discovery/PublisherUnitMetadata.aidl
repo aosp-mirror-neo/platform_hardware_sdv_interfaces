@@ -20,6 +20,8 @@ package google.sdv.gateway.service_discovery;
  * Standardized metadata for a Publisher Service Unit registered with Service Discovery.
  *
  * Note: not the final API.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 @RustDerive(Clone=true, PartialEq=true, Hash=true)
 @VintfStability

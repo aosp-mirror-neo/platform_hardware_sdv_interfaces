@@ -23,6 +23,8 @@ import google.sdv.gateway.ISdvGatewaySession;
  *
  * Note: not the final API.
  * TODO(b/340519425): Return the SDV public error APIs.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 
 @VintfStability

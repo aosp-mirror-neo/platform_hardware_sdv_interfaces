@@ -26,6 +26,8 @@ import android.hardware.common.fmq.UnsynchronizedWrite;
  * and FMQ descriptor.
  *
  * Note: not the final API.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 @VintfStability
 parcelable PublicationDescriptor {

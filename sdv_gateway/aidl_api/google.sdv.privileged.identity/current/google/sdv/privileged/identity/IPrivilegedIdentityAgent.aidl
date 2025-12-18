@@ -32,6 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.privileged.identity;
+/**
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
+ */
 @VintfStability
 interface IPrivilegedIdentityAgent {
   google.sdv.identity.ServiceIdentity createIdentityForProcess(in google.sdv.identity.ServiceIdentity.EcPublicKey publicKey, in google.sdv.identity.ServiceFqin fqin, in IBinder linkToDeath, in google.sdv.identity.ProcessIdentifier process_identifier);

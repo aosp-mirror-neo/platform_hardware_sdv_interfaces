@@ -18,6 +18,8 @@ package google.sdv.gateway.ca;
 
 /**
  * Interface for receiving the list of certificate authorities present in the vehicle.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 @VintfStability
 oneway interface IAuthoritiesListener {

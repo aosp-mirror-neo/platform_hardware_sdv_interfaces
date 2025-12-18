@@ -21,6 +21,7 @@ package google.sdv.gateway;
  * AIDL functions return the status codes as service specific errors (EX_SERVICE_SPECIFIC).
  *
  * Note: not the final API.
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 
 @VintfStability

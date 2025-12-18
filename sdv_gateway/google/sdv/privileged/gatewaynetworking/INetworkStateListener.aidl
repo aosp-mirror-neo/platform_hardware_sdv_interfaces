@@ -22,6 +22,8 @@ import google.sdv.privileged.gatewaynetworking.CarPowerState;
  * Interface for receiving events in the client's process from the SDV Gateway server. The power
  * state event is also included in this listener as sdv network and power event are coupled on some
  * platforms.
+ *
+ * @deprecated Comm stack API will be enabled for AAOS-IVI in the future.
  */
 @VintfStability
 oneway interface INetworkStateListener {
