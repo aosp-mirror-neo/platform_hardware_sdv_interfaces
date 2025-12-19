@@ -24,10 +24,10 @@ aidl_interface {
     stability: "vintf",
     owner: "google",
     imports: [
-        "google.sdv.identity-V1",
-        "google.sdv.data_tunnel-V1",
-        "google.sdv.rpc-V1",
-        "google.sdv.service_discovery.discovery-V1",
+        "google.sdv.identity-V2",
+        "google.sdv.data_tunnel-V2",
+        "google.sdv.rpc-V2",
+        "google.sdv.service_discovery.discovery-V2",
     ],
     backend: {
         rust: {
@@ -64,5 +64,5 @@ aidl_interface {
             ],
         },
     ],
-    frozen: true,
+    frozen: false,
 }

@@ -34,14 +34,41 @@
 package google.sdv.service_discovery.discovery;
 @VintfStability
 interface IServiceDiscoveryAgent {
-  List<google.sdv.service_discovery.discovery.ServiceUnitDefinition> listServiceUnitsByType(in google.sdv.service_discovery.common.UnitType unitType);
-  List<google.sdv.service_discovery.discovery.ServiceUnitDefinition> listServiceUnitsByName(in google.sdv.service_discovery.discovery.UnitNameParameters query);
-  void fetchServiceUnitsByType(in google.sdv.service_discovery.common.UnitType unitType, in google.sdv.service_discovery.discovery.IServiceUnitFetchListener listener);
-  void fetchServiceUnitsByName(in google.sdv.service_discovery.discovery.UnitNameParameters query, in google.sdv.service_discovery.discovery.IServiceUnitFetchListener listener);
-  @nullable google.sdv.service_discovery.discovery.ServiceUnitDefinition getServiceUnit(in google.sdv.identity.ServiceFqin fqin, @utf8InCpp String unitName);
-  void registerServiceUnitChangeListenerByType(in google.sdv.service_discovery.common.UnitType unitType, in google.sdv.service_discovery.discovery.IServiceUnitChangeListener listener);
-  void unregisterServiceUnitChangeListenerByType(in google.sdv.service_discovery.common.UnitType unitType, in google.sdv.service_discovery.discovery.IServiceUnitChangeListener listener);
-  void registerServiceUnitChangeListenerByName(in google.sdv.service_discovery.discovery.UnitNameParameters query, in google.sdv.service_discovery.discovery.IServiceUnitChangeListener listener);
-  void unregisterServiceUnitChangeListenerByName(in google.sdv.service_discovery.discovery.UnitNameParameters query, in google.sdv.service_discovery.discovery.IServiceUnitChangeListener listener);
-  void unregisterServiceUnitChangeListener(in google.sdv.service_discovery.discovery.IServiceUnitChangeListener listener);
+    List<google.sdv.service_discovery.discovery.ServiceUnitDefinition> listServiceUnitsByType(
+            in google.sdv.service_discovery.common.UnitType unitType);
+    List<google.sdv.service_discovery.discovery.ServiceUnitDefinition> listServiceUnitsByName(
+            in google.sdv.service_discovery.discovery.UnitNameParameters query);
+    void fetchServiceUnitsByType(in google.sdv.service_discovery.common.UnitType unitType,
+            in google.sdv.service_discovery.discovery.IServiceUnitFetchListener listener);
+    void fetchServiceUnitsByName(in google.sdv.service_discovery.discovery.UnitNameParameters query,
+            in google.sdv.service_discovery.discovery.IServiceUnitFetchListener listener);
+    @nullable google.sdv.service_discovery.discovery.ServiceUnitDefinition getServiceUnit(
+            in google.sdv.identity.ServiceFqin fqin, @utf8InCpp String unitName);
+    void registerServiceUnitChangeListenerByType(
+            in google.sdv.service_discovery.common.UnitType unitType,
+            in google.sdv.service_discovery.discovery.IServiceUnitChangeListener listener);
+    void unregisterServiceUnitChangeListenerByType(
+            in google.sdv.service_discovery.common.UnitType unitType,
+            in google.sdv.service_discovery.discovery.IServiceUnitChangeListener listener);
+    void registerServiceUnitChangeListenerByName(
+            in google.sdv.service_discovery.discovery.UnitNameParameters query,
+            in google.sdv.service_discovery.discovery.IServiceUnitChangeListener listener);
+    void unregisterServiceUnitChangeListenerByName(
+            in google.sdv.service_discovery.discovery.UnitNameParameters query,
+            in google.sdv.service_discovery.discovery.IServiceUnitChangeListener listener);
+    void unregisterServiceUnitChangeListener(
+            in google.sdv.service_discovery.discovery.IServiceUnitChangeListener listener);
+    void registerServiceUnitChangeListenerByChannel(
+            in google.sdv.service_discovery.common.UnitType unitType,
+            @utf8InCpp String channelName,
+            in google.sdv.service_discovery.discovery.IServiceUnitChangeListener listener);
+    void unregisterServiceUnitChangeListenerByChannel(
+            in google.sdv.service_discovery.common.UnitType unitType,
+            @utf8InCpp String channelName,
+            in google.sdv.service_discovery.discovery.IServiceUnitChangeListener listener);
+    void fetchPublishersByChannelName(@utf8InCpp String channelName,
+            in google.sdv.service_discovery.discovery.IServiceUnitFetchListener listener);
+    void listChannels(in google.sdv.service_discovery.discovery.IChannelFetchListener listener);
+    void listChannelsByType(in google.sdv.service_discovery.common.UnitType unitType,
+            in google.sdv.service_discovery.discovery.IChannelFetchListener listener);
 }
