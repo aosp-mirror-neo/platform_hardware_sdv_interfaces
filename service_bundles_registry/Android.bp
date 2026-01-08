@@ -61,6 +61,7 @@ aidl_interface {
     owner: "google",
     frozen: true,
     min_sdk_version: "35",
+    vintf_fragments: ["google.sdv.service-bundles-registry-service.xml"],
     versions_with_info: [
         {
             version: "1",
@@ -80,4 +81,12 @@ aidl_interface {
         "//system/software_defined_vehicle:__subpackages__",
         "//system/tools/aidl/build:__subpackages__",
     ],
+}
+
+// IRegistry vintf fragment.
+vintf_fragment {
+    name: "google.sdv.service-bundles-registry-service.xml",
+    src: "google.sdv.service-bundles-registry-service.xml",
+    system_ext_specific: true,
+    visibility: ["//system/software_defined_vehicle/service_bundles_registry:__pkg__"],
 }
