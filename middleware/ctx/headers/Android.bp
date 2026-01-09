@@ -27,4 +27,7 @@ cc_library_headers {
     export_header_lib_headers: ["libsdv_comms_id_hdrs"],
     header_libs: ["libsdv_comms_id_hdrs"],
     min_sdk_version: "34",
+    visibility: [
+        "//system/software_defined_vehicle/middleware:__subpackages__",
+    ],
 }
