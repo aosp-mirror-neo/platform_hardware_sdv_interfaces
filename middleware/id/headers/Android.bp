@@ -25,4 +25,7 @@ cc_library_headers {
     export_include_dirs: ["current"],
     defaults: ["sdv_comms_hdrs@cc_defaults"],
     min_sdk_version: "34",
+    visibility: [
+        "//system/software_defined_vehicle/middleware:__subpackages__",
+    ],
 }
