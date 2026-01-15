@@ -28,6 +28,7 @@ aidl_interface {
         "//system/tools/aidl/build",
         "//system/software_defined_vehicle/middleware:__subpackages__",
         "//system/software_defined_vehicle/samples/sdv_gateway:__subpackages__",
+        "//system/software_defined_vehicle/samples/vhal_proxy:__subpackages__",
         "//system/software_defined_vehicle/sdv_gateway:__subpackages__",
         "//system/software_defined_vehicle/core_services:__subpackages__",
         "//hardware/sdv/interfaces/middleware:__subpackages__",
