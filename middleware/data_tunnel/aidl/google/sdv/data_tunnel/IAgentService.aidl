@@ -26,6 +26,8 @@ import android.hardware.common.fmq.MQDescriptor;
 import android.hardware.common.fmq.UnsynchronizedWrite;
 import google.sdv.data_tunnel.ClientDescriptor;
 import google.sdv.data_tunnel.PublicationDescriptor;
+import google.sdv.data_tunnel.SubscriptionParams;
+import google.sdv.data_tunnel.SubscriptionResult;
 import google.sdv.identity.UnitIdentifier;
 import google.sdv.service_discovery.common.RegistrationToken;
 import google.sdv.service_discovery.common.UnitType;
@@ -72,6 +74,8 @@ interface IAgentService {
      * Subscribes to the specified publication with the given unit identifier and returns
      * its descriptor. The method will return an error if the unit_identifier is invalid or refers
      * to a previously deleted publication.
+     *
+     * @deprecated Use SubscribeToPublicationExtended instead.
      */
     void SubscribeToPublication(
             in UnitIdentifier unit_identifier, out PublicationDescriptor publication_descriptor);
@@ -95,4 +99,21 @@ interface IAgentService {
      * to a previously deleted publication.
      */
     void GetLastChannelMessage(in UnitType unit_type, in String channel_name, out byte[] message);
+
+    /**
+     * Subscribes to the specified publication with the unit_identifier in params and returns a
+     * result including the publication's descriptor. The method will return an error if the
+     * unit_identifier is invalid or refers to a previously deleted publication.
+     *
+     * If readiness_listener is provided in the params, then if SubscribeToPublicationExtended
+     * succeeds the listener will eventually be fired once either the subscription becomes "ready"
+     * (meaning that either topic data is now being published to the FMQ or we've confirmed that
+     * the publisher has written no messages), or an error occurs that prevents it from ever
+     * becoming ready.
+     *
+     * The listener can fire before SubscribeToPublicationExtended returns in the event that the
+     * topic is already ready.
+     */
+    void SubscribeToPublicationExtended(
+            in SubscriptionParams params, out SubscriptionResult result);
 }
