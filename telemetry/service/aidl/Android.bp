@@ -36,6 +36,8 @@ aidl_interface {
         },
         rust: {
             enabled: true,
+            gen_mockall: true,
+            additional_rustlibs: ["libmockall"],
         },
         ndk: {
             enabled: true,
