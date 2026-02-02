@@ -94,11 +94,11 @@ interface IAgentService {
     void GetLastPublicationMessage(in UnitIdentifier unit_identifier, out byte[] message);
 
     /**
-     * Fetches the last message from the specified channel with the given unit type and channel
-     * name. The method will return an error if the unit_type or channel_name is invalid or refers
+     * Fetches the last message from the specified topic with the given unit type and topic
+     * name. The method will return an error if the unit_type or topic_name is invalid or refers
      * to a previously deleted publication.
      */
-    void GetLastChannelMessage(in UnitType unit_type, in String channel_name, out byte[] message);
+    void GetLastMessageByTopic(in UnitType unit_type, in String topic_name, out byte[] message);
 
     /**
      * Subscribes to the specified publication with the unit_identifier in params and returns a

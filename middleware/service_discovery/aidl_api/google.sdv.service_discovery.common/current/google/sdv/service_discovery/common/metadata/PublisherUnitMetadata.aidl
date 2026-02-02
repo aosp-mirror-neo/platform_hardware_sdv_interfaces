@@ -38,5 +38,5 @@ parcelable PublisherUnitMetadata {
     int version;
     int message_size;
     int message_count;
-    @utf8InCpp String channel_name = "";
+    @utf8InCpp String topic_name = "";
 }

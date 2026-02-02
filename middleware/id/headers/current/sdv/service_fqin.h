@@ -71,9 +71,9 @@
 #define ASDV_UNIT_TYPE_NAME_MAX_SIZE_BYTES_INCLUDING_NUL 96
 
 /**
- * The maximum size in bytes (including the NUL (\0) character) for a Channel Name string.
+ * The maximum size in bytes (including the NUL (\0) character) for a Topic Name string.
  */
-#define ASDV_CHANNEL_NAME_MAX_SIZE_BYTES_INCLUDING_NUL 128
+#define ASDV_TOPIC_NAME_MAX_SIZE_BYTES_INCLUDING_NUL 128
 
 /**
  * Describes the Service Fully Qualified Name.

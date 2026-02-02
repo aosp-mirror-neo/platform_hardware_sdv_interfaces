@@ -314,54 +314,54 @@ sdv_status_t ASDV_PublisherUnitMetadata_getMessageCount(const ASDV_PublisherUnit
                                                         uint32_t* message_count);
 
 /**
- * Sets channel name of the ASDV_PublisherUnitMetadata.
+ * Sets topic name of the ASDV_PublisherUnitMetadata.
  *
- * If the function is called multiple times, the channel name associated with the provided
+ * If the function is called multiple times, the topic name associated with the provided
  * ASDV_PublisherUnitMetadata will be overwritten.
  *
  * Parameters:
  *    [IN] metadata: A valid pointer to the ASDV_PublisherUnitMetadata object for which to set the
- *              channel name
- *    [IN] channel: The channel name to set for this PublisherUnitMetadata. Must be a valid
+ *              topic name
+ *    [IN] topic_name: The topic name to set for this PublisherUnitMetadata. Must be a valid
  *                 UTF-8 string up to 127 bytes.
  *
  * Return Value: Returns SDV_STATUS_OK on success, otherwise one of the following error codes:
- *    ASDV_STATUS_INVALID_ARGUMENT in case if `channel` is not a valid pointer or the string
+ *    ASDV_STATUS_INVALID_ARGUMENT in case if `topic_name` is not a valid pointer or the string
  *                                 exceeds the maximum length.
  *
  * # Safety
  *
- * The caller guarantees that `ptr` and `channel` are all valid pointers that live for
+ * The caller guarantees that `ptr` and `topic_name` are all valid pointers that live for
  * at least the duration of the function call.
- * - `channel` must be a non-null pointer.
- * - `channel` must point at a NUL-terminated string.
- * - `channel` must point to a valid UTF-8 string.
+ * - `topic_name` must be a non-null pointer.
+ * - `topic_name` must point at a NUL-terminated string.
+ * - `topic_name` must point to a valid UTF-8 string.
  */
-sdv_status_t ASDV_PublisherUnitMetadata_setChannel(ASDV_PublisherUnitMetadata* metadata,
-                                                   const char* channel);
+sdv_status_t ASDV_PublisherUnitMetadata_setTopic(ASDV_PublisherUnitMetadata* metadata,
+                                                 const char* topic_name);
 
 /**
- * Returns the channel name of the ASDV_PublisherUnitMetadata.
+ * Returns the topic name of the ASDV_PublisherUnitMetadata.
  *
  * Parameters:
  *    [IN] metadata: A valid pointer to the ASDV_PublisherUnitMetadata object for which to get the
- *              channel name
+ *              topic name
  *    [OUT] buf: Pointer to char buffer into which the string will be written as a UTF-8 encoded
  *               NUL-terminated C string. It's expected that the input buffer has a size of 128
- *               bytes, which is the max size of channel.
+ *               bytes, which is the max size of topic.
  *    [OUT] buf_size: Returns the number of bytes written to the provided buffer (including the
  *                    NUL character)
  *
  * Return Value: Returns SDV_STATUS_OK on success, otherwise one of the following error codes:
- *    ASDV_STATUS_INVALID_ARGUMENT if the buf_size is not large enough to hold the channel name.
+ *    ASDV_STATUS_INVALID_ARGUMENT if the buf_size is not large enough to hold the topic name.
  *
  * # Safety
  *
  * The caller guarantees that `ptr`, `buf`, and `buf_size` are all valid pointers that live
  * for at least the duration of the function call.
  */
-sdv_status_t ASDV_PublisherUnitMetadata_getChannel(const ASDV_PublisherUnitMetadata* metadata,
-                                                   char* buf, size_t* buf_size);
+sdv_status_t ASDV_PublisherUnitMetadata_getTopic(const ASDV_PublisherUnitMetadata* metadata,
+                                                 char* buf, size_t* buf_size);
 
 /**
  * Returns the set value for MessageCount of the ASDV_PublisherUnitMetadata.
