@@ -16,10 +16,21 @@
 
 package google.sdv.service_discovery.discovery;
 
+import google.sdv.service_discovery.discovery.TopicList;
+
 /**
- * A parcelable to hold a list of channel names.
+ * Listener interface for receiving topic lists.
  */
 @VintfStability
-parcelable ChannelList {
-    String[] channels;
+oneway interface ITopicFetchListener {
+    /**
+     * Called when a chunk of topics has been fetched. Due to potential Binder
+     * buffer limitations, the full list of topics is delivered in multiple
+     * calls to this method.
+     * Make sure to wait for all chunks to be returned before processing the result.
+     *
+     * @param topics The list of fetched topic names in this chunk.
+     * @param isLastChunk True if this is the last chunk of the topic list, false otherwise.
+     */
+    void onTopicsFetched(in TopicList topics, boolean isLastChunk);
 }

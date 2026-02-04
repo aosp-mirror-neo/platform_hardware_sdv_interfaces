@@ -33,6 +33,6 @@
 
 package google.sdv.service_discovery.discovery;
 @VintfStability
-parcelable ChannelList {
-    String[] channels;
+interface ITopicFetchListener {
+  oneway void onTopicsFetched(in google.sdv.service_discovery.discovery.TopicList topics, boolean isLastChunk);
 }
