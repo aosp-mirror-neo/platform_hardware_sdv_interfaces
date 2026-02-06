@@ -24,13 +24,13 @@ parcelable PublisherUnitMetadata {
     int message_size;
     int message_count;
     /**
-     * The name of the channel this publisher will send message to.
+     * The name of the topic this publisher will send message to.
      * This is a kebab-case string with length limited by 127 chars,
-     * containing the following chars: [a-z0-9-].
-     * Empty channels are not valid channels.
+     * containing the following chars: [a-z0-9_].
+     * Empty topics are not valid topics.
      *
-     * Valid: "channel-name", "name"
-     * Invalid: "", "-channel-", "-", "CHANNEL", "channel_name"
+     * Valid: topic_name", "name"
+     * Invalid: "", "topic_", "-", "TOPIC", "topic-name"
      */
-    @utf8InCpp String channel_name = "";
+    @utf8InCpp String topic_name = "";
 }

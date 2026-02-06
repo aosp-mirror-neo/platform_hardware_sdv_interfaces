@@ -38,6 +38,7 @@ aidl_interface {
             enabled: true,
             gen_mockall: true,
             additional_rustlibs: ["libmockall"],
+            min_sdk_version: "35",
         },
         ndk: {
             enabled: true,
@@ -50,7 +51,6 @@ aidl_interface {
             imports: [],
         },
     ],
-
 }
 
 vintf_fragment {

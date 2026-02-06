@@ -59,13 +59,14 @@ DEFINE_CALLBACK(ServiceDiscoveryManager_NotifyListenerOfServiceUnitChange,
                 ASDV_ServiceUnitChangeEvent* _Nonnull);
 
 /*
- * Declare a Callback for the function ASDV_ServiceDiscoveryManager_listChannels. The generated
- * type is ASDV_CallbackVTable_ServiceDiscoveryManager_ListChannels.
+ * Declare a Callback for the function ASDV_ServiceDiscoveryManager_ListTopics. The generated
+ * type is ASDV_CallbackVTable_ServiceDiscoveryManager_ListTopics.
  */
-DEFINE_CALLBACK(ServiceDiscoveryManager_ListChannels, char* _Nullable);
+DEFINE_CALLBACK(ServiceDiscoveryManager_ListTopics, char* _Nullable);
 
 /*
- * Declare a Callback for the function ASDV_ServiceDiscoveryManager_fetchPublishersByChannelName. The generated
- * type is ASDV_CallbackVTable_ServiceDiscoveryManager_fetchPublishersByChannelName.
+ * Declare a Callback for the function ASDV_ServiceDiscoveryManager_fetchPublishersByTopicName. The
+ * generated type is ASDV_CallbackVTable_ServiceDiscoveryManager_fetchPublishersByTopicName.
  */
-DEFINE_CALLBACK(ServiceDiscoveryManager_fetchPublishersByChannelName, ASDV_ServiceUnitDefinition* _Nullable);
+DEFINE_CALLBACK(ServiceDiscoveryManager_fetchPublishersByTopicName,
+                ASDV_ServiceUnitDefinition* _Nullable);

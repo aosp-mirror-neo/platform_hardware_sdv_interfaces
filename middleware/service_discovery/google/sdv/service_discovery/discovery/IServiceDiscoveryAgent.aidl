@@ -18,9 +18,9 @@ package google.sdv.service_discovery.discovery;
 
 import google.sdv.identity.ServiceFqin;
 import google.sdv.service_discovery.common.UnitType;
-import google.sdv.service_discovery.discovery.IChannelFetchListener;
 import google.sdv.service_discovery.discovery.IServiceUnitChangeListener;
 import google.sdv.service_discovery.discovery.IServiceUnitFetchListener;
+import google.sdv.service_discovery.discovery.ITopicFetchListener;
 import google.sdv.service_discovery.discovery.ServiceUnitDefinition;
 import google.sdv.service_discovery.discovery.UnitNameParameters;
 import java.util.List;
@@ -143,67 +143,67 @@ interface IServiceDiscoveryAgent {
 
     /**
      * Registers the IServiceUnitChangeListener to monitor lifecycle events (registration,
-     * unregistration, and change) for units matching unitType and channelName. If units with
-     * the same unitType and channelName are already registered, the onServiceUnitRegistered
+     * unregistration, and change) for units matching unitType and topicName. If units with
+     * the same unitType and topicName are already registered, the onServiceUnitRegistered
      * callback will be called immediately. Otherwise, no callback method will be called until a
      * unit is registered. An onServiceUnitUnregistered or onServiceUnitChanged callback will not be
      * called before an onServiceUnitRegistered callback is called for a given service unit.
-     * Multiple callbacks can be registered for the same unitType and channelName even if called
+     * Multiple callbacks can be registered for the same unitType and topicName even if called
      * from the same process.
      *
      * @param unitType type of service units to monitor.
-     * @param channelName channel name of service units to monitor.
+     * @param topicName topic name of service units to monitor.
      * @param listener implementation of IServiceUnitChangeListener, responsible for informing the
      *         client about registered/unregistered/changed service units matching the unitType and
-     * channelName.
+     * topicName.
      */
-    void registerServiceUnitChangeListenerByChannel(in UnitType unitType,
-            @utf8InCpp String channelName, in IServiceUnitChangeListener listener);
+    void registerServiceUnitChangeListenerByTopic(in UnitType unitType,
+            @utf8InCpp String topicName, in IServiceUnitChangeListener listener);
 
     /**
-     * Unregisters the IServiceUnitChangeListener for a unitType and channelName.
+     * Unregisters the IServiceUnitChangeListener for a unitType and topicName.
      * This method does nothing if the listener is not registered, and can be called
      * multiple times safely.
      *
      * @param unitType of monitored service units for which listener was previously registered.
-     * @param channelName channel name of monitored service units for which listener was previously
+     * @param topicName topic name of monitored service units for which listener was previously
      *         registered.
      * @param listener implementation of IServiceUnitChangeListener, responsible for informing the
      *         client about registered/unregistered/changed service units matching a unitType and
-     * channelName.
+     * topicName.
      */
-    void unregisterServiceUnitChangeListenerByChannel(in UnitType unitType,
-            @utf8InCpp String channelName, in IServiceUnitChangeListener listener);
+    void unregisterServiceUnitChangeListenerByTopic(in UnitType unitType,
+            @utf8InCpp String topicName, in IServiceUnitChangeListener listener);
 
     /**
-     * Discovers all service units registered with the specified Channel name.
+     * Discovers all service units registered with the specified Topic name.
      *
      * Returns a list of ServiceUnitDefinition objects one for each of the discovered unit,
      * or an empty list if nothing was found.
      */
-    void fetchPublishersByChannelName(
-            @utf8InCpp String channelName, in IServiceUnitFetchListener listener);
+    void fetchPublishersByTopicName(
+            @utf8InCpp String topicName, in IServiceUnitFetchListener listener);
 
     /**
-     * Discovers all active channel names accessible by the caller.
+     * Discovers all active topic names accessible by the caller.
      *
-     * An active channel is defined as a channel that has at least one publisher
+     * An active topic is defined as a topic that has at least one publisher
      * currently registered to it.
      * The results are provided asynchronously via the listener.
      *
-     * @param listener The callback interface to receive the list of channels or errors.
+     * @param listener The callback interface to receive the list of topics or errors.
      */
-    void listChannels(in IChannelFetchListener listener);
+    void listTopics(in ITopicFetchListener listener);
 
     /**
-     * Discovers all active channel names accessible by the caller for a given unitType.
+     * Discovers all active topic names accessible by the caller for a given unitType.
      *
-     * An active channel is defined as a channel that has at least one publisher
+     * An active topic is defined as a topic that has at least one publisher
      * currently registered to it for the given unitType.
      * The results are provided asynchronously via the listener.
      *
-     * @param unitType The type of service units to filter channels by.
-     * @param listener The callback interface to receive the list of channels or errors.
+     * @param unitType The type of service units to filter topics by.
+     * @param listener The callback interface to receive the list of topics or errors.
      */
-    void listChannelsByType(in UnitType unitType, in IChannelFetchListener listener);
+    void listTopicsByType(in UnitType unitType, in ITopicFetchListener listener);
 }
