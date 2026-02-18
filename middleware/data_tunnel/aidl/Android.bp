@@ -68,7 +68,7 @@ aidl_interface {
             enabled: false,
         },
     },
-    frozen: false,
+    frozen: true,
     versions_with_info: [
         {
             version: "1",
@@ -79,6 +79,16 @@ aidl_interface {
                 "google.sdv.identity-V1",
             ],
         },
+        {
+            version: "2",
+            imports: [
+                "android.hardware.common.fmq-V1",
+                "android.hardware.common-V2",
+                "google.sdv.service_discovery.common-V2",
+                "google.sdv.identity-V2",
+            ],
+        },
+
     ],
 }
 
