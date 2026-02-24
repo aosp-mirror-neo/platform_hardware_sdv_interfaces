@@ -63,6 +63,16 @@ aidl_interface {
                 "google.sdv.service_discovery.discovery-V1",
             ],
         },
+        {
+            version: "2",
+            imports: [
+                "google.sdv.identity-V2",
+                "google.sdv.data_tunnel-V2",
+                "google.sdv.rpc-V2",
+                "google.sdv.service_discovery.discovery-V2",
+            ],
+        },
+
     ],
-    frozen: false,
+    frozen: true,
 }

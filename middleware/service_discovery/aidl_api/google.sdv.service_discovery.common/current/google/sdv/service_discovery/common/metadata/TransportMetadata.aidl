@@ -32,8 +32,7 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.service_discovery.common.metadata;
-@RustDerive(Clone=true)
-@VintfStability
+@RustDerive(Clone=true) @VintfStability
 parcelable TransportMetadata {
-    byte[] value_holder;
+  byte[] value_holder;
 }

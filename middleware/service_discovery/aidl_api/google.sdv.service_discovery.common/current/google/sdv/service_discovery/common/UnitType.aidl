@@ -32,10 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.service_discovery.common;
-@RustDerive(Clone=true, Eq=true, Hash=true, PartialEq=true)
-@VintfStability
+@RustDerive(Clone=true, Eq=true, Hash=true, PartialEq=true) @VintfStability
 parcelable UnitType {
-    @utf8InCpp String sdvPackageName;
-    @utf8InCpp String serviceBundleName;
-    @utf8InCpp String typeName;
+  @utf8InCpp String sdvPackageName;
+  @utf8InCpp String serviceBundleName;
+  @utf8InCpp String typeName;
 }

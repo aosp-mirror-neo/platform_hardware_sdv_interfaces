@@ -34,13 +34,9 @@
 package google.sdv.identity;
 @VintfStability
 interface IIdentityAgent {
-    google.sdv.identity.ServiceIdentity createIdentity(
-            in google.sdv.identity.ServiceIdentity.EcPublicKey publicKey,
-            in google.sdv.identity.ServiceFqin fqin, in IBinder linkToDeath);
-    boolean verifyIdentity(in google.sdv.identity.ServiceIdentity identity);
-    @nullable google.sdv.identity.ServiceIdentity findIdentityByUid(long sid);
-    @nullable google.sdv.identity.ServiceIdentity findIdentityByName(
-            in google.sdv.identity.ServiceFqin name);
-    @nullable google.sdv.identity.ServiceIdentity findIdentityByProcess(
-            in google.sdv.identity.ProcessIdentifier process_identifier);
+  google.sdv.identity.ServiceIdentity createIdentity(in google.sdv.identity.ServiceIdentity.EcPublicKey publicKey, in google.sdv.identity.ServiceFqin fqin, in IBinder linkToDeath);
+  boolean verifyIdentity(in google.sdv.identity.ServiceIdentity identity);
+  @nullable google.sdv.identity.ServiceIdentity findIdentityByUid(long sid);
+  @nullable google.sdv.identity.ServiceIdentity findIdentityByName(in google.sdv.identity.ServiceFqin name);
+  @nullable google.sdv.identity.ServiceIdentity findIdentityByProcess(in google.sdv.identity.ProcessIdentifier process_identifier);
 }

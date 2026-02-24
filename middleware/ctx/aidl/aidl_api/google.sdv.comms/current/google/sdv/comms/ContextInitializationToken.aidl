@@ -32,12 +32,11 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.comms;
-@RustDerive(PartialEq=true)
-@VintfStability
+@RustDerive(PartialEq=true) @VintfStability
 parcelable ContextInitializationToken {
-    google.sdv.identity.ServiceIdentity identity;
-    google.sdv.service_discovery.discovery.IServiceRegistrationAgent sr_agent;
-    google.sdv.service_discovery.discovery.IServiceDiscoveryAgent sd_agent;
-    google.sdv.data_tunnel.IAgentService dt_agent;
-    google.sdv.rpc.IRpcAgent rpc_agent;
+  google.sdv.identity.ServiceIdentity identity;
+  google.sdv.service_discovery.discovery.IServiceRegistrationAgent sr_agent;
+  google.sdv.service_discovery.discovery.IServiceDiscoveryAgent sd_agent;
+  google.sdv.data_tunnel.IAgentService dt_agent;
+  google.sdv.rpc.IRpcAgent rpc_agent;
 }
