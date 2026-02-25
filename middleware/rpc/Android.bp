@@ -63,7 +63,7 @@ aidl_interface {
     product_available: true,
     vendor_available: true,
     min_sdk_version: "34",
-    frozen: false,
+    frozen: true,
     versions_with_info: [
         {
             version: "1",
@@ -72,6 +72,14 @@ aidl_interface {
                 "google.sdv.identity-V1",
             ],
         },
+        {
+            version: "2",
+            imports: [
+                "google.sdv.service_discovery.common-V2",
+                "google.sdv.identity-V2",
+            ],
+        },
+
     ],
 
 }

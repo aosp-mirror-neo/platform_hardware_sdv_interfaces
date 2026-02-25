@@ -32,15 +32,13 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.service_discovery.common.metadata;
-@RustDerive(Clone=true, Hash=true, PartialEq=true)
-@VintfStability
+@RustDerive(Clone=true, Hash=true, PartialEq=true) @VintfStability
 parcelable ApplicationMetadata {
-    google.sdv.service_discovery.common.metadata.ApplicationMetadata.TypedMetadata typedMetadata;
-    byte[] valueHolder;
-    @RustDerive(Clone=true, Hash=true, PartialEq=true)
-    @VintfStability
-    union TypedMetadata {
-        google.sdv.service_discovery.common.metadata.ServerUnitMetadata serverUnit;
-        google.sdv.service_discovery.common.metadata.PublisherUnitMetadata publisherUnit;
-    }
+  google.sdv.service_discovery.common.metadata.ApplicationMetadata.TypedMetadata typedMetadata;
+  byte[] valueHolder;
+  @RustDerive(Clone=true, Hash=true, PartialEq=true) @VintfStability
+  union TypedMetadata {
+    google.sdv.service_discovery.common.metadata.ServerUnitMetadata serverUnit;
+    google.sdv.service_discovery.common.metadata.PublisherUnitMetadata publisherUnit;
+  }
 }

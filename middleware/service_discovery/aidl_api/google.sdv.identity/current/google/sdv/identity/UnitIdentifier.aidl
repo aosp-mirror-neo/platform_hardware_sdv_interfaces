@@ -32,9 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.identity;
-@RustDerive(Clone=true, Hash=true, PartialEq=true)
-@VintfStability
+@RustDerive(Clone=true, Hash=true, PartialEq=true) @VintfStability
 parcelable UnitIdentifier {
-    google.sdv.identity.ServiceIdentity service_identity;
-    @utf8InCpp String unit_name;
+  google.sdv.identity.ServiceIdentity service_identity;
+  @utf8InCpp String unit_name;
 }
