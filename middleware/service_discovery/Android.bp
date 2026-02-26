@@ -60,13 +60,18 @@ aidl_interface {
     product_available: true,
     vendor_available: true,
     host_supported: true,
-    frozen: false, // TODO (b/446088663): Freeze this before release
+    frozen: true,
     min_sdk_version: "34",
     versions_with_info: [
         {
             version: "1",
             imports: [],
         },
+        {
+            version: "2",
+            imports: [],
+        },
+
     ],
 }
 
@@ -104,13 +109,18 @@ aidl_interface {
     },
     product_available: true,
     vendor_available: true,
-    frozen: false,
+    frozen: true,
     min_sdk_version: "34",
     versions_with_info: [
         {
             version: "1",
             imports: ["google.sdv.identity-V1"],
         },
+        {
+            version: "2",
+            imports: ["google.sdv.identity-V2"],
+        },
+
     ],
 }
 
@@ -153,7 +163,7 @@ aidl_interface {
     },
     product_available: true,
     vendor_available: true,
-    frozen: false,
+    frozen: true,
     min_sdk_version: "34",
     versions_with_info: [
         {
@@ -163,6 +173,14 @@ aidl_interface {
                 "google.sdv.identity-V1",
             ],
         },
+        {
+            version: "2",
+            imports: [
+                "google.sdv.service_discovery.common-V2",
+                "google.sdv.identity-V2",
+            ],
+        },
+
     ],
 }
 
@@ -202,7 +220,7 @@ aidl_interface {
     product_available: true,
     vendor_available: true,
     min_sdk_version: "34",
-    frozen: false,
+    frozen: true,
     versions_with_info: [
         {
             version: "1",
@@ -211,6 +229,14 @@ aidl_interface {
                 "google.sdv.identity-V1",
             ],
         },
+        {
+            version: "2",
+            imports: [
+                "google.sdv.service_discovery.common-V2",
+                "google.sdv.identity-V2",
+            ],
+        },
+
     ],
 }
 

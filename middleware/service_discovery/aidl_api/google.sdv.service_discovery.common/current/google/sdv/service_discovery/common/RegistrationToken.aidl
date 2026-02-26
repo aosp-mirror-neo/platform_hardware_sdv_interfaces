@@ -32,9 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.service_discovery.common;
-@RustDerive(Clone=true, PartialEq=true)
-@VintfStability
+@RustDerive(Clone=true, PartialEq=true) @VintfStability
 parcelable RegistrationToken {
-    google.sdv.identity.ServiceIdentity identity;
-    IBinder token;
+  google.sdv.identity.ServiceIdentity identity;
+  IBinder token;
 }

@@ -32,14 +32,13 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.sdv.service_discovery.common.metadata;
-@RustDerive(Clone=true, Hash=true, PartialEq=true)
-@VintfStability
+@RustDerive(Clone=true, Hash=true, PartialEq=true) @VintfStability
 parcelable InferredMetadata {
-    google.sdv.service_discovery.common.metadata.InferredMetadata.RelativeLocation location;
-    enum RelativeLocation {
-        LOCATION_UNKNOWN = 0,
-        LOCATION_LOCAL_SDV_INSTANCE = 1,
-        LOCATION_LOCAL_HARDWARE = 2,
-        LOCATION_REMOTE = 3,
-    }
+  google.sdv.service_discovery.common.metadata.InferredMetadata.RelativeLocation location;
+  enum RelativeLocation {
+    LOCATION_UNKNOWN = 0,
+    LOCATION_LOCAL_SDV_INSTANCE = 1,
+    LOCATION_LOCAL_HARDWARE = 2,
+    LOCATION_REMOTE = 3,
+  }
 }
