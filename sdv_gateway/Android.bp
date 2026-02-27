@@ -36,7 +36,7 @@ aidl_interface {
     ],
     stability: "vintf",
     owner: "google",
-    frozen: false,
+    frozen: true,
     min_sdk_version: "35",
     backend: {
         java: {
@@ -77,6 +77,18 @@ aidl_interface {
                 "google.sdv.service_discovery.discovery-V1",
             ],
         },
+        {
+            version: "3",
+            imports: [
+                "android.hardware.common.fmq-V1",
+                "android.hardware.common-V2",
+                "google.sdv.identity-V2",
+                "google.sdv.authz-V2",
+                "google.sdv.data_tunnel-V2",
+                "google.sdv.service_discovery.common-V2",
+                "google.sdv.service_discovery.discovery-V2",
+            ],
+        },
 
     ],
 
@@ -90,7 +102,7 @@ aidl_interface {
     srcs: ["google/sdv/privileged/gatewaynetworking/*.aidl"],
     stability: "vintf",
     owner: "google",
-    frozen: false,
+    frozen: true,
     min_sdk_version: "35",
     backend: {
         java: {
@@ -117,6 +129,10 @@ aidl_interface {
             version: "2",
             imports: [],
         },
+        {
+            version: "3",
+            imports: [],
+        },
 
     ],
 
@@ -133,7 +149,7 @@ aidl_interface {
     ],
     stability: "vintf",
     owner: "google",
-    frozen: false,
+    frozen: true,
     min_sdk_version: "35",
     backend: {
         java: {
@@ -156,6 +172,11 @@ aidl_interface {
             version: "1",
             imports: ["google.sdv.identity-V1"],
         },
+        {
+            version: "2",
+            imports: ["google.sdv.identity-V2"],
+        },
+
     ],
 
 }
@@ -173,7 +194,7 @@ aidl_interface {
     ],
     stability: "vintf",
     owner: "google",
-    frozen: false,
+    frozen: true,
     min_sdk_version: "35",
     backend: {
         java: {
@@ -200,6 +221,15 @@ aidl_interface {
                 "google.sdv.identity-V1",
             ],
         },
+        {
+            version: "2",
+            imports: [
+                "google.sdv.service_discovery.common-V2",
+                "google.sdv.service_discovery.discovery-V2",
+                "google.sdv.identity-V2",
+            ],
+        },
+
     ],
 
 }
