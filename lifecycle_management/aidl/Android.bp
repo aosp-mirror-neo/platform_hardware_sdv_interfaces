@@ -56,12 +56,17 @@ aidl_interface {
             ],
         },
     },
-    frozen: false,
+    frozen: true,
     versions_with_info: [
         {
             version: "1",
             imports: ["google.sdv.identity-V1"],
         },
+        {
+            version: "2",
+            imports: ["google.sdv.identity-V2"],
+        },
+
     ],
 
 }
