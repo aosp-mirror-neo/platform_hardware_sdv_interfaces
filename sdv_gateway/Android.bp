@@ -241,21 +241,9 @@ filegroup {
     ],
 }
 
-vintf_fragment {
-    name: "google.sdv.gateway.xml",
-    src: "google.sdv.gateway.xml",
-    vendor: true,
-}
-
 filegroup {
     name: "sdv_privileged_gatewaynetworking_vintf_fragments",
     srcs: [
         "google.sdv.privileged.gatewaynetworking.xml",
     ],
-}
-
-vintf_fragment {
-    name: "google.sdv.privileged.gatewaynetworking.xml",
-    src: "google.sdv.privileged.gatewaynetworking.xml",
-    vendor: true,
 }
