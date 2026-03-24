@@ -15,7 +15,7 @@
 <manifest version="1.0" type="device">
     <hal format="aidl">
         <name>google.sdv.gateway</name>
-        <version>1</version>
+        <version>3</version>
         <interface>
             <name>ISdvGateway</name>
             <instance>default</instance>
