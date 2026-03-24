@@ -39,7 +39,7 @@
     </hal>
     <hal format="aidl">
         <name>google.sdv.identity</name>
-        <version>1</version>
+        <version>2</version>
         <interface>
             <name>IIdentityAgent</name>
             <instance>default</instance>
@@ -47,7 +47,7 @@
     </hal>
     <hal format="aidl">
         <name>google.sdv.service_discovery.discovery</name>
-        <version>1</version>
+        <version>2</version>
         <interface>
             <name>IServiceRegistrationAgent</name>
             <instance>default</instance>
@@ -55,7 +55,7 @@
     </hal>
     <hal format="aidl">
         <name>google.sdv.service_discovery.discovery</name>
-        <version>1</version>
+        <version>2</version>
         <interface>
             <name>ITransportSupportAgent</name>
             <instance>default</instance>
@@ -63,7 +63,7 @@
     </hal>
     <hal format="aidl">
         <name>google.sdv.service_discovery.discovery</name>
-        <version>1</version>
+        <version>2</version>
         <interface>
             <name>IServiceDiscoveryAgent</name>
             <instance>default</instance>
@@ -87,7 +87,7 @@
     </hal>
     <hal format="aidl">
         <name>google.sdv.authz</name>
-        <version>1</version>
+        <version>2</version>
         <interface>
             <name>IAuthzService</name>
             <instance>default</instance>
@@ -95,7 +95,7 @@
     </hal>
     <hal format="aidl">
         <name>google.sdv.privileged.service_discovery</name>
-        <version>1</version>
+        <version>2</version>
         <interface>
             <name>IPrivilegedServiceDiscoveryAgent</name>
             <instance>default</instance>
@@ -103,7 +103,7 @@
     </hal>
     <hal format="aidl">
         <name>google.sdv.privileged.service_discovery</name>
-        <version>1</version>
+        <version>2</version>
         <interface>
             <name>IPrivilegedServiceRegistrationAgent</name>
             <instance>default</instance>
@@ -111,7 +111,7 @@
     </hal>
     <hal format="aidl">
         <name>google.sdv.privileged.identity</name>
-        <version>1</version>
+        <version>2</version>
         <interface>
             <name>IPrivilegedIdentityAgent</name>
             <instance>default</instance>
