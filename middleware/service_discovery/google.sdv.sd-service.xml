@@ -14,30 +14,6 @@
 
 <manifest version="1.0" type="framework">
     <hal format="aidl">
-        <name>google.sdv.sd</name>
-        <version>1</version>
-        <interface>
-            <name>IServiceManager</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl">
-        <name>google.sdv.sd</name>
-        <version>1</version>
-        <interface>
-            <name>IIdentityManager</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl">
-        <name>google.sdv.sd</name>
-        <version>1</version>
-        <interface>
-            <name>IAgentManager</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl">
         <name>google.sdv.identity</name>
         <version>2</version>
         <interface>
