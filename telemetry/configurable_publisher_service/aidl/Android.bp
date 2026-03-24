@@ -24,6 +24,7 @@ aidl_interface {
     srcs: [
         "google/sdv/telemetry/configurable_publisher/*.aidl",
     ],
+    product_available: true,
     vendor_available: true,
     stability: "vintf",
     owner: "google",
@@ -57,5 +58,5 @@ aidl_interface {
 vintf_fragment {
     name: "google.sdv.telemetry.configurable_publisher-service.xml",
     src: "google.sdv.telemetry.configurable_publisher-service.xml",
-    vendor: true,
+    system_ext_specific: true,
 }
