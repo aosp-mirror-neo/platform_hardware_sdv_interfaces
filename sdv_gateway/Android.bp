@@ -234,16 +234,32 @@ aidl_interface {
 
 }
 
+// Used by /vendor modules
 filegroup {
     name: "sdv_gateway_vintf_fragments",
     srcs: [
-        "google.sdv.gateway.xml",
+        "google.sdv.gateway.vendor.xml",
     ],
 }
 
+// Used by /vendor modules
 filegroup {
     name: "sdv_privileged_gatewaynetworking_vintf_fragments",
     srcs: [
-        "google.sdv.privileged.gatewaynetworking.xml",
+        "google.sdv.privileged.gatewaynetworking.vendor.xml",
     ],
+}
+
+// Used by /system_ext modules
+vintf_fragment {
+    name: "google.sdv.privileged.gatewaynetworking.xml",
+    src: "google.sdv.privileged.gatewaynetworking.xml",
+    system_ext_specific: true,
+}
+
+// Used by /system_ext modules
+vintf_fragment {
+    name: "google.sdv.gateway.xml",
+    src: "google.sdv.gateway.xml",
+    system_ext_specific: true,
 }
