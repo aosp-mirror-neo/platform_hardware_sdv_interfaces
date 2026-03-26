@@ -14,7 +14,7 @@
   limitations under the License.
 -->
 
-<manifest version="1.0" type="device">
+<manifest version="1.0" type="framework">
     <hal format="aidl">
         <name>google.sdv.telemetry.configurable_publisher</name>
         <version>2</version>
