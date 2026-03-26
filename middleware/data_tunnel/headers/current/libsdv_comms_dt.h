@@ -16,6 +16,12 @@
 
 #pragma once
 
+#if defined(__GNUC__) || defined(__clang__)
+#define SDV_DEPRECATED(msg) __attribute__((deprecated(msg)))
+#else
+#define SDV_DEPRECATED(msg)
+#endif
+
 #include <sdv/callback.h>
 #include <sdv/ctx.h>
 #include <sdv/service_identity.h>
@@ -285,7 +291,10 @@ void ASDV_SubscribeToPublication(const ASDV_Context* _Nonnull context,
  *    This function does not return anything. It invokes the provided CallbackVTable with
  *    SDV_STATUS_OK, and a pointer to an ASDV_PublicationHandle on success, or an sdv_status_t code
  *    representing an error.
+ *
+ * @deprecated This function is deprecated. Use ASDV_SubscribeToTopic instead.
  */
+SDV_DEPRECATED("ASDV_SubscribeToUnitType is deprecated. Use ASDV_SubscribeToTopic instead.")
 void ASDV_SubscribeToUnitType(const ASDV_Context* _Nonnull context,
                               const ASDV_UnitType* _Nonnull unit_type,
                               const uint64_t subscription_flags,
@@ -475,7 +484,11 @@ DEFINE_ONCE_CALLBACK(SubscribeToHistory, ASDV_HistoryHandle* _Nonnull);
  *    This function does not return anything. It invokes the provided CallbackVTable with
  *    SDV_STATUS_OK, and a pointer to an ASDV_HistoryHandle on success, or an sdv_status_t code
  *    representing an error.
+ *
+ * @deprecated This function is deprecated. Use ASDV_SubscribeToHistoryByTopic instead.
  */
+SDV_DEPRECATED(
+        "ASDV_SubscribeToUnitType is deprecated. Use ASDV_SubscribeToHistoryByTopic instead.")
 void ASDV_SubscribeToHistory(const ASDV_Context* _Nonnull context,
                              const ASDV_UnitIdentifier* _Nonnull unit_identifier,
                              uint32_t history_buffer_size,
